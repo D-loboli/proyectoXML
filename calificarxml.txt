@@ -1,0 +1,21 @@
+CALIFICAR
+
+index.php?u=xxx & p= xxxx & id =x  & calificar=1-5
+-----------------------------------------------
+u --> usuario
+p --> contraseña
+id --> id del post a calificar
+calificar --> 1-5 (Numero de calificacion de 1 a 5)
+
+		
+
+-----------------------------------------------
+<calificar>
+	<id>1</id>
+	<usuario>xxxxx</usuario>
+	<fecha>___</fecha>
+	<estrellas> 1-5 </estrellas>
+</calificar>
+
+<Error>
+</Error>
