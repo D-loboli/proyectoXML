@@ -1,0 +1,27 @@
+Ingresar
+
+index.php?u=xxxx & p=xxxx
+---------------------------------------------------------------
+u --> Usuario
+p --> Contraseña
+
+---------------------------------------------------------------
+
+<entrar>
+	<usuario>xxxx</usuario>
+	<contraseña>yyyy</contraseña>
+</entrar>
+
+---------------------------------------------------------------
+
+<errorusuarioincorrecto>
+	<id>1</id>
+	<tipodeerror>Usuario incorrecto</tipodeerror>	
+</errorusuarioincorrecto>
+
+
+
+<errorcontraseñaincorrecta>
+	<id>2</id>
+	<tipodeerror>Contraseña incorrecta</tipodeerror>
+</errorcontraseñaincorrecta>
