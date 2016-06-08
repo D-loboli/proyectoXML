@@ -1,13 +1,45 @@
 registrar
 index.php?u=proyectoXML&p=*******&registrar=true
 xml
+<<<<<<< HEAD
 <bbe>
+=======
+url de la pagina : index.php
+u= = usuario
+proyectoXML = nombre del proyecto
+p=******* = nombre del usuario
+&registrar = nombre de la funcion la cual es registrar un nuevo usuario
+true = significa que el envio de la informacion ha sido correta
+
+en este caso se puede dar como resulatado que todo esta correcto cual es este
+
+
+>>>>>>> c9586175fa353fdf9532c3402b1c70a30fcb5ffe
 	<registro>
 		<id>1</id>
 		<text>Usuario creado correctamente</txt>
 		<fecha>12/10/2016</fecha>
 	<registro>
 
+<<<<<<< HEAD
+=======
+<registro> = tag de la funcion registro
+<id>1</id> = tag de el id del nuevo usuario y su nuemero unico
+<fecha>12/10/2016</fecha> = tag de la fecha y hora en cual fue efectuado este ingreso
+--------------------------------------------------------------------------------------------
+index.php?u=proyectoXML&p=*******&registrar=false
+xml
+url de la pagina : index.php
+u= = usuario
+proyectoXML = nombre del proyecto
+p=******* = nombre del usuario
+&registrar = nombre de la funcion la cual es registrar un nuevo usuario
+true = significa que el envio de la informacion ha sido incorecta
+
+en este caso son dos resultados posibles lo cual son
+
+1.-
+>>>>>>> c9586175fa353fdf9532c3402b1c70a30fcb5ffe
 
 	<error>
 		<info>ya creado</info>
@@ -15,12 +47,34 @@ xml
 
 	</error>
 
+<<<<<<< HEAD
+=======
+<error> = este tag significa que el envio de la informacion esta erronia y un mensaje del error
+idError>**</idError> = tag el cual se incluye el numero del id del error el cual tiene el significao de este
+1 = este es el id del error que el usuario el cual se intenta crear ya existe
+
+---------------------------------------------------------------------------------------------------------
+
+
+
+>>>>>>> c9586175fa353fdf9532c3402b1c70a30fcb5ffe
 	
 	<error>
 		<info>Datos no validos</info>
 		<idError>2</idError>	
+<<<<<<< HEAD
 
 	</error>
 
 
 	
+=======
+	<error>
+
+<error> = este tag significa que el envio de la informacion esta erronia y un mensaje del error
+idError>**</idError> = tag el cual se incluye el numero del id del error el cual tiene el significao de este
+2 = este es el id del error que los datos enviados esta erronios
+
+
+	
+>>>>>>> c9586175fa353fdf9532c3402b1c70a30fcb5ffe
