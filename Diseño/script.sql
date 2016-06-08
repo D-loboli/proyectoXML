@@ -8,6 +8,9 @@ create table rol(
 	constraint pkRol primary key(id)
 );
 
+insert into rol values(null, 'Administrador');
+insert into rol values(null, 'Usuario Comun');
+
 create table tipoError(
 
 	id tinyint not null auto_increment,
@@ -29,10 +32,12 @@ create table usuario(
 create table post(
 
 	id int not null auto_increment,
+	idUsuario int,
 	titulo varchar(23),
 	texto text,
 	fecha date,
-	constraint pkPost primary key(id)
+	constraint pkPost primary key(id),
+	constraint fkUserPost foreign key(idUsuario) references usuario(id)
 );
 
 create table calificacion(

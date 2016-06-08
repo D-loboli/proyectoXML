@@ -1,0 +1,45 @@
+-- Listado de post
+
+nickUser --> nick del usuario que escribe el post
+titulo --> titulo del post
+texto --> texto propiamente tal
+fecha --> fecha de la publicacion
+calificacion --> calificacion de la publicacion
+
+?user=nickUser-idPost=idPosteo
+
+<listadoPost>
+
+	<post> 
+
+		<nickUser> </nickUser>
+		<titulo> </titulo>
+		<texto> </texto>
+		<fecha> </fecha>
+		<calificacion> </calificacion>
+
+	</post>
+
+	<post> 
+
+		<nickUser> </nickUser>
+		<titulo> </titulo>
+		<texto> </texto>
+		<fecha> </fecha>
+		<calificacion> </calificacion>
+
+	</post>
+
+
+	<post> 
+
+		<nickUser> </nickUser>
+		<titulo> </titulo>
+		<texto> </texto>
+		<fecha> </fecha>
+		<calificacion> </calificacion>
+
+	</post>
+
+
+</listadoPost>
