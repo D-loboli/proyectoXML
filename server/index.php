@@ -29,5 +29,7 @@
                       >
                   </form>
 
+    <a href="model/registrar">registro</a>
+
   </body>
 </html>
