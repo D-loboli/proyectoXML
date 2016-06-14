@@ -11,11 +11,9 @@ calificar --> 1-5 (Numero de calificacion de 1 a 5)
 
 -----------------------------------------------
 <calificar>
-	<id>1</id>
-	<usuario>xxxxx</usuario>
-	<fecha>___</fecha>
-	<estrellas> 1-5 </estrellas>
+	<menaje>Post Calificado<mensaje>
 </calificar>
 
 <Error>
+	<mensaje>Post no calificado</mensaje>
 </Error>

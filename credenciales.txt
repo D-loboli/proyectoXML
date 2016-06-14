@@ -1,0 +1,8 @@
+FTP
+user:grupo_b
+pass:asdfgh
+
+mysql
+db:grupo_b
+user:grupo_b
+pass:asdfgh
