@@ -10,7 +10,8 @@ $calificacion = $_GET['calificar=1'];
 $d =
 if(isset($_POST["btnCalificar"])){
   $calificar=$_POST["txtCalificar"];
-  
+
+  $calificar = $d.
 }else {
   echo "<error>Usuario o contraseña incorrectos<error>";
 }
