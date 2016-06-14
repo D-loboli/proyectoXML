@@ -2,17 +2,17 @@
 require_once "Conexion.php";
 
 class Data{
+    private $c;
 
-    private $conexion;
-
-    public function __construct($server, $bd, $user, $pass){
-        $conexion = new Conexion($server, $bd, $user, $pass);
+    public function __construct(){
+        $this->c = new Conexion(
+            "localhost",
+            "grupo_b",
+            "grupo_b",
+            "asdfgh"
+        );
     }
 
-    /*
-        Metodo utilizado para el login --> retorna 1 si es administrador,
-        2 si es usuario común y 0 si no existe
-    */
 
     public function getPrivilegio($nick, $clave){
 
