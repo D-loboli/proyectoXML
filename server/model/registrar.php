@@ -10,8 +10,10 @@
 
         if ($data->isRegistroValido($u)) {
             $data->addUser($u, $p, $nom);
-            
+            $id = $data->getId($u);
+            echo "El usuario de id " + $id + "ha sido creado exitosamente";
         }
+        else echo "Error! usuario existente";
     }
 
 

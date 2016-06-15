@@ -40,5 +40,13 @@ class Data{
         $query = "insert into usuario values(null, 2, $nick, $name, $pass)";
         $this->c->ejecutar($query);
     }
+
+    public function getId($nick){
+        $query = "select id from usuario where nick = $nick";
+        if ($reg = mysql_fetch_array($this->c->ejecutar($query)))
+            return $reg[0];
+        else return 0;
+
+    }
 }
  ?>
