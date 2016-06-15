@@ -25,5 +25,20 @@ class Data{
 
         return $res;
     }
+
+    public function isRegistroValido($nick){
+
+        $query = "select id from usuario where nick = $nick";
+        $rs = $this->c->ejecutar($query);
+
+        if ($reg = mysql_fetch_array($rs)) return false;
+
+        else return true;
+    }
+
+    public function addUser($nick, $pass, $name){
+        $query = "insert into usuario values(null, 2, $nick, $name, $pass)";
+        $this->c->ejecutar($query);
+    }
 }
  ?>
