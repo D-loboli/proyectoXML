@@ -28,8 +28,22 @@ class Data{
 
 <<<<<<< HEAD
     public function calificarPost($usuario, $password, $id_post){
-      
+
     }
+
+  public function getEliminarPost($id_post, $nick, $clave){
+  $query = "delete id = $id_post from post where id_usuario = $nick";
+  $res = $this->conexion->ejecutar($query);
+
+  if ($reg = mysql_fetch_array($res)) $res = $reg;
+
+  else $res = 0;
+
+  return $res;
+
+
+
+}
 
 
 =======
