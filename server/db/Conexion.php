@@ -2,19 +2,6 @@
 class Conexion{
     private $con;
 
-    class Data{
-    private $c;
-
-    public function __construct(){
-        $this->c = new Conexion(
-            "localhost",
-            "grupo_b",
-            "grupo_b",
-            "asdfgh"
-        );
-    }
-
-
     public function __construct($server, $bd, $user, $pass){
         $this->con = mysql_connect($server, $user, $pass);
 
