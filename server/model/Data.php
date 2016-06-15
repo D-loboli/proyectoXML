@@ -28,15 +28,7 @@ class Data{
 
 <<<<<<< HEAD
     public function calificarPost($usuario, $password, $id_post){
-      $q="insert into evento values
-       (null,
-       '$nombre_evento',
-       '$lugar',
-       '$sede',
-       '$hora_inicio',
-       '$hora_fin',
-       $n_entrada)";
-       $this->c->ejecutar($q);
+      
     }
 
 
