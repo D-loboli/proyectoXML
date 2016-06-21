@@ -1,5 +1,3 @@
-html
-
 <?php
 require_once "/Data.php"
 $usuario = $_GET['u'];
