@@ -1,0 +1,26 @@
+
+u --> usuario que escribio el texto
+p --> post escrito por el usuario
+v --> post valido o no (si el texto no esta vacio)
+
+index.php?u=user&p=posteo&v=true
+
+<post> 
+
+	<id> idPosteo</id>
+	<usuario> user </usuario>
+	<titulo></titulo>	
+	<texto> textoEscrito </texto>
+	<fecha> fechaAutomaticamenteGenerada </fecha>
+	<hora> horaAutomaticamenteGenerada</hora>
+
+</post>
+
+
+<error>
+
+	<id> 1</id>
+	<text> Debe escribir texto</text>
+</error>
+
+
