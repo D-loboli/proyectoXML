@@ -1,35 +1,16 @@
 <?php
-require_once "../db/Conexion.php";
+require_once "Conexion.php";
 
 class Data{
-    private $conexion;
+    private $c;
 
     public function __construct(){
-        $this->conexion = new Conexion(
+        $this->c = new Conexion(
             "localhost",
-            "dbBlog",
-            "root",
-            "admin"
+            "grupo_b",
+            "grupo_b",
+            "asdfgh"
         );
-    }
-
-    public function isRegistroValido($user){
-
-      echo "entro al metodo";
-      $query = "select count(id) from usuario where nick = '$user';";
-      $res = $this->conexion->ejecutar($query);
-      echo "antes del reg";
-      echo "despues del reg<br>";
-
-      if ($reg = mysql_fetch_array($res)) {
-        echo $reg[0];
-        if ($reg[0] == 0) {
-          return true;
-        }
-        else return false;
-      }
-
-      return true;
     }
 
     public function getPrivilegio($nick, $clave){
@@ -48,26 +29,26 @@ class Data{
       return $res;
     }
 
-    public function addUser($nick, $pass, $name){
+    public function getRegistrar($nick, $pass, $name){
         $query = "insert into usuario values(null, 2, $nick, $name, $pass)";
-        $this->conexion->ejecutar($query);
+        $this->c->ejecutar($query);
     }
 
     public function getId($nick){
-        $query = "select id from usuario where nick = '$nick'";
-        if ($reg = mysql_fetch_array($this->conexion->ejecutar($query)))
+        $query = "select id from usuario where nick = $nick";
+        if ($reg = mysql_fetch_array($this->c->ejecutar($query)))
             return $reg[0];
         else return 0;
     }
 
-    public function getIngresarPost($idUsuario, $titulo, $texto, $fecha, $calificacion){
-      $query = "insert into from post values($idUsuario, $titulo, $texto, $fecha, $calificacion)";
-        $this->conexion->ejecutar($query);
+    public function getIngresarPost($idUsuario, $titulo, $texto){
+      $query = "insert into from post values($idUsuario, $titulo, $texto, fecha, calificacion)";
+        $this->c->ejecutar($query);
     }
 
     public function getListar(){
       $qyert = "select from * post";
-      $this->conexion->ejecutar($query);
+      $this->c->ejecutar($query);    
     }
 
 }
