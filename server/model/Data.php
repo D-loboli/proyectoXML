@@ -44,7 +44,12 @@ class Data{
 
     public function getIngresarPost($idUsuario, $titulo, $texto){
       $query = "insert into from post values($idUsuario, $titulo, $texto, fecha, calificacion)";
-        $this->c->ejecutar($query);      
+        $this->c->ejecutar($query);
+    }
+
+    public function getListar(){
+      $qyert = "select from * post";
+      $this->c->ejecutar($query);    
     }
 
 }
