@@ -1,16 +1,16 @@
 <?php
 require_once "/Data.php"
-$usuario = $_GET['u'];
-$password = $_GET['p'];
+$nick = $_GET['n'];
+$clave = $_GET['c'];
+$id_post = $_GET['ip'];
 $id = $_GET['id'];
-$confirmacion = $_GET['c'];
 
 $d = new Data();
 
-$permiso = $d.getPrivilegio($u,$p,$i);
+$permiso = $d.getPrivilegio($n,$c);
 
 if ($permiso == 1) {
-  if ($d->getEliminarPost($id, $u, $p)){
+  if ($d->getEliminarPost($id_post, $id)){
     echo "<info>";
     echo "<mensaje>'Post Eliminado con éxito'<mensaje/>";
     echo "<delete>true<delete/>";
