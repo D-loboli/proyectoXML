@@ -2,75 +2,60 @@
 require_once "../db/Conexion.php";
 
 class Data{
-    private $conexion;
+  private $c;
 
-    public function __construct(){
-        $this->conexion = new Conexion(
-            "localhost",
-            "dbBlog",
-            "root",
-            "admin"
-        );
-    }
+  public function __construct(){
+    $this->c = new Conexion(
+    "localhost",
+    "grupo",
+    "root",
+    ""
+  );
+}
 
-    public function isRegistroValido($user){
+public function getEliminarPost($id_post){
+  $query = "delete from post where id = $id_post";
+  $res = $this->c->ejecutar($query);
+  /*if ($reg = mysqli_fetch_array($res)) {
+    $res = $reg;
+  }*/
+  return $res;
+}
+public function getRegistrar($nick, $pass, $name){
+  $query = "insert into usuario values(null, 2, '$nick', '$name', '$pass')";
+  $this->c->ejecutar($query);
+}
+public function getId($nick){
+  	$query = "select id from usuario where nick = '$nick'";
+  	if ($reg = mysql_fetch_array($this->c->ejecutar($query)))
+  		return $reg[0];
 
-      echo "entro al metodo";
-      $query = "select count(id) from usuario where nick = '$user';";
-      $res = $this->conexion->ejecutar($query);
-      echo "antes del reg";
-      echo "despues del reg<br>";
+	else return 0;
+}
+public function getIngresarPost($idUsuario, $titulo, $texto, $calificar){
+  $query = "insert into post values(null,'$idUsuario', '$titulo', '$texto', '2016-06-06', '$calificar')";
+  $this->c->ejecutar($query);
+}
+public function getListar(){
+  $qyert = "select from * post";
+  $this->c->ejecutar($query);
+}
 
-      if ($reg = mysql_fetch_array($res)) {
-        echo $reg[0];
-        if ($reg[0] == 0) {
-          return true;
-        }
-        else return false;
-      }
+public function getPrivilegio($nick, $clave){
+  $query = "select idRol from usuario where nick = '$nick' and clave = '$clave'";
+  $res = $this->c->ejecutar($query);
+  $idPermiso = 0;
+  if ($reg = mysqli_fetch_array($res)) {
+    $idPermiso = $reg[0];
+  }
+  return $idPermiso;
+}
 
-      return true;
-    }
-
-    public function getPrivilegio($nick, $clave){
-        $query = "select id from rol where nick = $nick and clave = $clave";
-        $res = $this->conexion->ejecutar($query);
-        if ($reg = mysql_fetch_array($res)) $res = $reg;
-        else $res = 0;
-        return $res;
-    }
-
-    public function getEliminarPost($id_post, $id){
-      $query = "delete id = $id_post from post where id_usuario = $id";
-      $res = $this->conexion->ejecutar($query);
-      if ($reg = mysql_fetch_array($res)) $res = $reg;
-      else $res = 0;
-      return $res;
-    }
-
-    public function addUser($nick, $pass, $name){
-        $query = "insert into usuario values(null, 2, $nick, $name, $pass);";
-        $this->conexion->ejecutar($query);
-    }
-
-    public function getId($nick){
-        $query = "select id from usuario where nick = '$nick'";
-        if ($reg = mysql_fetch_array($this->conexion->ejecutar($query)))
-            return $reg[0];
-        else return 0;
-    }
-
-    public function getIngresarPost($idUsuario, $titulo, $texto, $fecha, $calificacion){
-      $query = "insert into from post values($idUsuario, $titulo, $texto, $fecha, $calificacion)";
-        $this->conexion->ejecutar($query);
-    }
-
-    public function getListar(){
-      $qyert = "select from * post";
-      $this->conexion->ejecutar($query);
-    }
-
+  public function addUser($nick, $pass, $name){
+     $query = "insert into usuario values(null, 2, $nick, $name, $pass);";
+     $this->conexion->ejecutar($query);
+  }
 }
 
 
- ?>
+?>
