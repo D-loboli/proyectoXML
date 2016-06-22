@@ -43,7 +43,7 @@ class Data{
     }
 
     public function getIngresarPost($idUsuario, $titulo, $texto){
-      $query = "insert into from post values($idUsuario, $titulo, $texto, "2016-06-18", 4)";
+      $query = "insert into from post values($idUsuario, $titulo, $texto, '2016-06-18', 4)";
         $this->c->ejecutar($query);
     }
 
