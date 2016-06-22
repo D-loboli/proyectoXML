@@ -49,7 +49,7 @@ class Data{
     }
 
     public function addUser($nick, $pass, $name){
-        $query = "insert into usuario values(null, 2, $nick, $name, $pass)";
+        $query = "insert into usuario values(null, 2, $nick, $name, $pass);";
         $this->conexion->ejecutar($query);
     }
 
