@@ -7,7 +7,7 @@
 
       $d = new Data();
 
-      $d->getRegistrar($nick, $pass, $name);
+      $d->getRegistrar($nick, $name, $clave);
 
       echo "<info>";
       echo "<mensaje>'usuario resgitrado con exito'<mensaje/>";

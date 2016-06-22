@@ -3,7 +3,7 @@ require_once "Data.php";
 
 $nick = $_GET['nick'];
 $clave = $_GET['clave'];
-$idUsuario = $_GET['idsusario'];
+$idUsuario = $_GET['idusuario'];
 $titulo = $_GET['titulo'];
 $texto = $_GET['texto'];
 
