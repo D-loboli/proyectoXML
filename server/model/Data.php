@@ -13,7 +13,6 @@ class Data{
         );
     }
 
-
     public function getPrivilegio($nick, $clave){
         $query = "select id from rol where nick = $nick and clave = $clave";
         $res = $this->conexion->ejecutar($query);
