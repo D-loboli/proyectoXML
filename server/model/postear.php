@@ -2,19 +2,29 @@
 require_once "Data.php";
 
 $nick = $_GET['nick'];
-$clave = $_GET['clave'];
-$idUsuario = $_GET['idusuario'];
 $titulo = $_GET['titulo'];
 $texto = $_GET['texto'];
-$calificar = $_GET['calificar'];
+$fecha = $_GET['fecha'];
 
 $d = new Data();
 
-$permiso = $d->getPrivilegio($nick, $clave);
-echo "hola";
-if ($permiso == 1) {
-  $d->getIngresarPost($idUsuario, $titulo, $texto, $calificar);
-  echo "<post>";
+$idUser = $d->getId($nick);
+
+if ($idUser != 0) {
+  $d->addPost($idUsuario, $titulo, $texto, $fecha);
+  echo "<postear>";
+    echo "<mensaje> Posteo exitoso</mensaje>";
+    echo "<posteado> true</posteado>";
+  echo "</postear>";
+}
+
+else{
+  echo "<postear>";
+    echo "<mensaje> Error al postear</mensaje>";
+    echo "<posteado> false</posteado>";
+  echo "</postear>";
+}
+/*  echo "<post>";
   echo "<usuario> '$nick' </usuario>";
   echo "<titulo>'$titulo'</titulo>";
   echo "<texto> '.$texto' </texto>";
@@ -37,5 +47,5 @@ if ($permiso == 1) {
   echo "<priv>$permiso</priv>";
   echo "</error>";
 }
-
+*/
 ?>
