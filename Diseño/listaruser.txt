@@ -1,0 +1,31 @@
+index.php?listarUser.php
+
+listarUser.php = creara una lista de todos los usuarios
+
+<id> = la identifacion del usuario
+<nick> = el seudonimo que se utilisara
+<nombre> = nombre del usuario
+
+
+----------------------------------------------------------------------
+<post>
+     	<id> ****** </id>
+	<nick> ******* </nick>
+	<nombre> ******* </nombre>
+</post>
+
+
+<post>
+     	<id> ****** </id>
+	<nick> ******* </nick>
+	<nombre> ******* </nombre>
+</post>
+
+
+
+<post>
+     	<id> ****** </id>
+	<nick> ******* </nick>
+	<nombre> ******* </nombre>
+</post>
+

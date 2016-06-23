@@ -1,0 +1,16 @@
+nick - > usuario 
+clave - > clave del usuario
+id -> id del user a actualizar 
+clavenueva -> clave nueva
+
+index.php?nick=xxxxx&clave=xxxxxx&id=x&clavenueva=xxxxxxx
+
+<Actualizar>
+    <mensaje>Usuario Actualizado<mensaje/>
+    <delete>true<delete/>
+</Actualizar>
+--------------------------------------------------------------------------------------
+<Actualizar>
+  <mensaje>No posee los privilegios necesarios para realizar esta acción<mensaje/>
+  <estado>false<estado/>
+<Actualizar/>

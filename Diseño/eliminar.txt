@@ -1,0 +1,23 @@
+Eliminar
+
+eliminar.php? $nick == xxx  | $clave == xxx | $id = xxx 
+---------------------------------------------------
+nick ---> usuario;
+clave ---> contraseña;
+id --> id del post;
+
+
+---------------------------------------------------
+
+<eliminar>
+  <mensaje> Post eliminado Satisfactoriamente <mensaje>
+  <estado><estado/>
+<eliminar>
+
+---------------------------------------------------
+
+<error>
+   <mensaje> No tiene los permisos suficientes para realizar éste proceso <mensaje>
+<error>
+
+---------------------------------------------------
