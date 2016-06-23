@@ -29,7 +29,7 @@
                       >
                   </form>
 
-    <a href="model/registrar">registro</a>
+    <a href="model/registrar.php">registro</a>
     <a href="model/listar.php">listar</a>
 
   </body>

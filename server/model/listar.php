@@ -3,6 +3,7 @@
   $d = new Data();
   $res = $d->getAllPosts();
 
+  echo '<?xml versión="1.0" encoding="UTF-8"?>';
   echo "<listar>";
 
   while ($reg = mysqli_fetch_array($res)) {

@@ -12,6 +12,7 @@
 
       if ($d->isRegistroValido($nick)) {
         $d->addUser($nick, $clave, $name);
+        echo '<?xml versión="1.0" encoding="UTF-8"?>';
         echo "<registro>";
           echo "<mensaje> Usuario registrado con exito </mensaje>";
           echo "<registrado> true </registrado>";
@@ -19,9 +20,10 @@
       }
 
       else{
+        echo '<?xml versión="1.0" encoding="UTF-8-1"?>';
         echo "<registro>";
           echo "<mensaje> Usuario ya existe </mensaje>";
-          echo "<registrado> true </registrado>";
+          echo "<registrado> false </registrado>";
         echo "</registro>";
       }
 

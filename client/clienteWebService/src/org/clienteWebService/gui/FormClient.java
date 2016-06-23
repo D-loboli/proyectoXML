@@ -5,9 +5,20 @@
  */
 package org.clienteWebService.gui;
 
+import java.io.IOException;
 import java.util.LinkedList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.xml.parsers.ParserConfigurationException;
 import org.clienteWebService.model.Post;
+import org.clienteWebService.model.Usuario;
+import org.clienteWebService.net.Linker;
+import org.jespxml.JespXML;
+import org.jespxml.excepciones.TagHijoNotFoundException;
+import org.jespxml.modelo.Tag;
+import org.xml.sax.SAXException;
 
 /**
  *
@@ -15,11 +26,12 @@ import org.clienteWebService.model.Post;
  */
 public class FormClient extends javax.swing.JFrame {
 
-    /**
-     * Creates new form FormClient
-     */
+    Usuario localUser;
+    
     public FormClient() {
         initComponents();
+        setLocationRelativeTo(null);
+        setResizable(false);
     }
 
     private void showPosts(LinkedList<Post> posts){
@@ -121,7 +133,7 @@ public class FormClient extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(panelNewPostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnAddPost, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 340, Short.MAX_VALUE)))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 611, Short.MAX_VALUE)))
         );
         panelNewPostLayout.setVerticalGroup(
             panelNewPostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -162,7 +174,7 @@ public class FormClient extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(panelNewPost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panelPosts, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(panelPosts, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE))
         );
 
         jLabel8.setFont(new java.awt.Font("DejaVu Sans", 1, 30)); // NOI18N
@@ -386,6 +398,11 @@ public class FormClient extends javax.swing.JFrame {
 
         btnLogin.setFont(new java.awt.Font("DejaVu Sans", 1, 12)); // NOI18N
         btnLogin.setText("Ingresar");
+        btnLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoginActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -447,7 +464,17 @@ public class FormClient extends javax.swing.JFrame {
 
     private void btnAddPostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddPostActionPerformed
 
+        String title = txtPostTitle.getText().trim();
+        String content = txtPostContent.getText().trim();
+        Post newPost;
         
+        if (content.isEmpty()) {
+            JOptionPane.showMessageDialog(formBlog, "El contenido del post esta vacio");
+        }
+        else{
+            
+            newPost = new Post(localUser, title, content);
+        }
     }//GEN-LAST:event_btnAddPostActionPerformed
 
     private void btnAddPost1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddPost1ActionPerformed
@@ -466,6 +493,54 @@ public class FormClient extends javax.swing.JFrame {
     private void btnListPostsAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListPostsAActionPerformed
 
     }//GEN-LAST:event_btnListPostsAActionPerformed
+
+    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+
+        String user = txtNick.getText();
+        String passwd = txtPassword.getText();
+        
+        if (user.isEmpty() || passwd.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Uno o mas campos está vacio");
+            txtNick.selectAll();
+            txtNick.requestFocus();
+        }
+        
+        else{
+            try {
+                JespXML fileLogin = Linker.isLoginValido(user, passwd);
+                Tag root = fileLogin.leerXML();
+                boolean isValido = Boolean.valueOf(root.getTagHijoByName("isValido").getContenido());
+                
+                if (isValido) {
+                    
+                    Tag usuario = root.getTagHijoByName("usuario");
+                    int id = Integer.parseInt(usuario.getTagHijoByName("id").getContenido());
+                    String nombre = usuario.getTagHijoByName("nombre").getContenido();
+                    localUser = new Usuario(id, user, nombre, passwd);
+                    
+                    if (localUser.getId() == 1) {
+                        
+                    }
+                    else{
+                        
+                    }
+                    
+                }
+
+                else{
+                    JOptionPane.showMessageDialog(this, 
+                            "Usuario y/o contraseña incorrectos", 
+                            "Error", 
+                            JOptionPane.WARNING_MESSAGE);
+                }
+                
+            } catch (IOException | ParserConfigurationException | SAXException | TagHijoNotFoundException ex) {
+                Logger.getLogger(FormClient.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+        }
+        
+    }//GEN-LAST:event_btnLoginActionPerformed
 
     /**
      * @param args the command line arguments

@@ -12,14 +12,16 @@
   $idPrivilegio = $d->getPrivilegio($usuario, $password);
 
   if ($idPrivilegio == 1) {
-    $d->addCalificacion($usuario, $id_post, $calificacion);
+    $d->addCalificacion($id_post, $calificacion);
 
+    echo '<?xml versión="1.0" encoding="UTF-8"?>';
     echo "<calificacion>";
       echo "<mensaje> Calificacion realizada con exito</mensaje>";
       echo "<calificado> true </calificado>";
     echo "</calificacion>";
   }
   else{
+    echo '<?xml versión="1.0" encoding="UTF-8-1"?>';
     echo "<calificacion>";
       echo "<mensaje> Error al calificar</mensaje>";
       echo "<calificado> false </calificado>";

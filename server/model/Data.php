@@ -26,9 +26,8 @@ class Data{
 
   }
 
-  public function addCalificacion($idAdmin, $idPost, $idCalificacion){
-
-    $query = "insert into calificacion values(null, $idAdmin, $idPost, $idCalificacion);";
+  public function addCalificacion($idPost, $idCalificacion){
+    $query = "update post set calificacion = $calificacion where id = $idPost;";
     $this->c->ejecutar($query);
 
   }
@@ -42,6 +41,7 @@ public function deletePost($id_post){
   return $res;
 }
 
+
 public function getId($nick){
   	$query = "select id from usuario where nick = '$nick'";
   	if ($reg = mysqli_fetch_array($this->c->ejecutar($query)))
@@ -49,6 +49,17 @@ public function getId($nick){
 
 	else return 0;
 }
+
+public function getName($idUser){
+  $query = "select nombre from usuario where id = $idUser";
+
+  if ($reg = mysqli_fetch_array($this->c->ejecutar($query)))
+      return $reg[0];
+
+  else return "nulo";
+
+}
+
 public function addPost($idUsuario, $titulo, $texto, $fecha){
   $query = "insert into post values(null,'$idUsuario', '$titulo', '$texto', ''$fecha', '0')";
   $this->c->ejecutar($query);

@@ -25,6 +25,26 @@ public class Usuario {
         this.clave = clave;
     }
 
+    public Usuario(Rol rol, String nick, String nombre, String clave) {
+        this.rol = rol;
+        this.nick = nick;
+        this.nombre = nombre;
+        this.clave = clave;
+    }
+
+    public Usuario(int id, String nick, String nombre, String clave) {
+        this.id = id;
+        this.nick = nick;
+        this.nombre = nombre;
+        this.clave = clave;
+    }
+
+    public Usuario(String nick, String nombre, String clave) {
+        this.nick = nick;
+        this.nombre = nombre;
+        this.clave = clave;
+    }
+    
     public int getId() {
         return id;
     }
