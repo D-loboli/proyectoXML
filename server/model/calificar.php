@@ -14,7 +14,6 @@
   if ($idPrivilegio == 1) {
     $d->addCalificacion($id_post, $calificacion);
 
-    echo '<?xml versión="1.0" encoding="UTF-8"?>';
     echo "<calificacion>";
       echo "<mensaje> Calificacion realizada con exito</mensaje>";
       echo "<calificado> true </calificado>";

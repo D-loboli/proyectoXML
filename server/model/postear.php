@@ -12,7 +12,6 @@ $idUser = $d->getId($nick);
 
 if ($idUser != 0) {
   $d->addPost($idUsuario, $titulo, $texto, $fecha);
-  echo '<?xml versión="1.0" encoding="UTF-8"?>';
   echo "<postear>";
     echo "<mensaje> Posteo exitoso</mensaje>";
     echo "<posteado> true</posteado>";
@@ -20,7 +19,6 @@ if ($idUser != 0) {
 }
 
 else{
-  echo '<?xml versión="1.0" encoding="UTF-8-1"?>';
   echo "<postear>";
     echo "<mensaje> Error al postear</mensaje>";
     echo "<posteado> false</posteado>";
