@@ -13,6 +13,7 @@ public class Post {
     
     private int id;
     private Usuario idUsuario;
+    private String nickUser;
     private String titulo;
     private String texto;
     private String fecha;
@@ -45,6 +46,13 @@ public class Post {
         this.titulo = titulo;
         this.texto = texto;
         this.fecha = Generator.getCurrentDate();
+    }
+
+    public Post(String nickUser, String titulo, String texto, String fecha) {
+        this.nickUser = nickUser;
+        this.titulo = titulo;
+        this.texto = texto;
+        this.fecha = fecha;
     }
 
     public int getId() {
