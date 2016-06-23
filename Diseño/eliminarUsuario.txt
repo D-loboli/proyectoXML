@@ -1,0 +1,23 @@
+Eliminar
+index.php?nick=*****&clave=*****&id=*******true
+
+nick= nick del administrador
+clave= clave correcta
+id = identificacion del usuario a eliminar
+
+
+--------------------------------------------------------------------------------------
+ <eliminar>
+ 	<mensaje>'User Eliminado con éxito'<mensaje/>
+ 		<estado>true<estado/>
+ </eliminar>
+
+
+ 
+------------------------------------------------------------------------------------------
+index.php?nick=*****&clave=*****&id=*******false
+
+ <eliminar>
+ 	<mensaje>'No posee los privilegios necesarios para realizar esta acción'<mensaje/>
+  		<estado>false<estado/>
+ <eliminar/>

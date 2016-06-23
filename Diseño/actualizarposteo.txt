@@ -1,0 +1,22 @@
+index.php?nick=*****&clave=*****&fecha=******&titulo=******&texto=******&idUsuario=****true
+
+nick= nick del administrador
+clave= clave correcta
+fecha= nueva fecha
+titulo = nuevo titulo
+texto =  nuevo texto
+idUsuario = id del usuario creador del post
+----------------------------------------------------------------------------------------------------------------------------------
+ <actualizar>
+ 	<mensaje>'Post Actualizado'<mensaje/>
+		 <estado>true<estado/>
+ </actualizar>
+----------------------------------------------------------------------------------------------------------------------------------
+index.php?nick=*****&clave=*****&fecha=******&titulo=******&texto=******&idUsuario=****false
+
+
+
+ <error>
+ 	<mensaje>'No posee los privilegios necesarios para realizar esta acción'<mensaje/>
+  		<estado>false<estado/>
+ <error/>
