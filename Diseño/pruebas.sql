@@ -1,7 +1,3 @@
-create database grupo;
-
-use grupo;
-
 create table rol(
 
 	id tinyint not null auto_increment,
