@@ -8,6 +8,7 @@ $d = new Data();
 
 $idPermiso = $d->getPrivilegio($nick, $password);
 
+echo '<?xml versión="1.0" encoding="UTF-8"?>';
 if ($idPermiso != 0) {
 
   $idUser = $d->getId($nick);

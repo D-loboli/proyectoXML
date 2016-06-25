@@ -7,9 +7,9 @@ class Data{
   public function __construct(){
       $this->c = new Conexion(
       "localhost",
-      "grupo",
-      "root",
-      ""
+      "grupo_b",
+      "grupo_b",
+      "asdfgh"
     );
   }
 
@@ -41,6 +41,15 @@ public function deletePost($id_post){
   return $res;
 }
 
+public function deleteUser($id){
+  $query = "delete from usuario where id = $id";
+  $res = $this->c->ejecutar($query);
+  /*if ($reg = mysqli_fetch_array($res)) {
+    $res = $reg;
+  }*/
+  return $res;
+}
+
 
 public function getId($nick){
   	$query = "select id from usuario where nick = '$nick'";
@@ -61,15 +70,15 @@ public function getName($idUser){
 }
 
 public function addPost($idUsuario, $titulo, $texto, $fecha){
-  $query = "insert into post values(null,'$idUsuario', '$titulo', '$texto', ''$fecha', '0')";
+  $query = "insert into post values(null,1, '$titulo', '$texto', '$fecha', '0')";
   $this->c->ejecutar($query);
 }
 public function getAllPosts(){
-  $qyery = "select p.id, u.nick, p.titulo, p.texto, p.fecha from post p, usuario u where p.idUsuario = u.id";
+  $query = "select p.id, u.nick, p.titulo, p.texto, p.fecha from post p, usuario u where p.idUsuario = u.id";
   $res = $this->c->ejecutar($query);
   return $res;
 }
-
+/*
 public function getPrivilegio($idUsuario){
 
   $query = "select idRol from usuario where id = $idUsuario;";
@@ -81,7 +90,7 @@ public function getPrivilegio($idUsuario){
   else return 0;
 
 }
-
+*/
 public function getPrivilegio($nick, $clave){
   $query = "select idRol from usuario where nick = '$nick' and clave = '$clave'";
   $res = $this->c->ejecutar($query);
@@ -92,9 +101,28 @@ public function getPrivilegio($nick, $clave){
   return $idPermiso;
 }
 
+public function getActualizarPublicacion($id, $titulo, $texto, $fecha){
+  $query="update post
+  set fecha='$fecha',
+  titulo='$titulo',
+  texto= '$texto'
+  where id= $id";
+  $this->c->ejecutar($query);
+}
+
   public function addUser($nick, $pass, $name){
-     $query = "insert into usuario values(null, 2, $nick, $name, $pass);";
-     $this->conexion->ejecutar($query);
+     $query = "insert into usuario values(null, 2, '$nick', '$name', '$pass');";
+     $this->c->ejecutar($query);
+  }
+
+  public function getActualizarUsuario($id,$clave){
+    $query="update usuario set clave='$clave' where id='$id'";
+    $this->c->ejecutar($query);
+  }
+
+  public function getListarUsuario(){
+    $query="select u.idRol, u.nick, u.nombre from usuario u";
+    return $this->c->ejecutar($query);
   }
 }
 

@@ -1,5 +1,5 @@
 <?php
-require_once "../db/Data.php";
+require_once "Data.php";
 $nick = $_GET['nick'];
 $clave = $_GET['clave'];
 $id = $_GET['id_user'];

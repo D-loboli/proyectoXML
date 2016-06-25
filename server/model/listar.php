@@ -6,6 +6,7 @@
   echo "<listar>";
 
   while ($reg = mysqli_fetch_array($res)) {
+
     echo "<post>";
       echo "<id> $reg[0]</id>";
       echo "<usuario> $reg[1] </usuario>";
